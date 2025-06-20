@@ -22,40 +22,40 @@ public class EntryServiceTest {
     @Test
     public void testIfEntryCanBeSaved() {
         Entry entry = new Entry();
-        entry.setDescripiton("Awesome");
-        entry.setCheck_in(LocalDateTime.now());
+        entry.setDescription("Awesome");
+        entry.setCheckIn(LocalDateTime.now());
         entry.setDuration(60 * 60 * 2);
 
         entryService.create(entry);
 
-        assertEquals(entry.getDescripiton(), entryService.read(entry.getId()).getDescripiton());
+        assertEquals(entry.getDescription(), entryService.read(entry.getId()).getDescription());
     }
 
     @Test
     public void testIfEntryCanBeUpdated() {
         Entry entry = new Entry();
-        entry.setDescripiton("Initial");
-        entry.setCheck_in(LocalDateTime.now());
+        entry.setDescription("Initial");
+        entry.setCheckIn(LocalDateTime.now());
         entry.setDuration(3600);
         entryService.create(entry);
 
-        entry.setDescripiton("Updated");
+        entry.setDescription("Updated");
         entryService.update(entry);
 
         Entry updated = entryService.read(entry.getId());
-        assertEquals("Updated", updated.getDescripiton());
+        assertEquals("Updated", updated.getDescription());
     }
 
     @Test
     public void testIfEntryCanBeListed() {
         Entry entry1 = new Entry();
-        entry1.setDescripiton("First");
-        entry1.setCheck_in(LocalDateTime.now());
+        entry1.setDescription("First");
+        entry1.setCheckIn(LocalDateTime.now());
         entry1.setDuration(3600);
 
         Entry entry2 = new Entry();
-        entry2.setDescripiton("Second");
-        entry2.setCheck_in(LocalDateTime.now());
+        entry2.setDescription("Second");
+        entry2.setCheckIn(LocalDateTime.now());
         entry2.setDuration(7200);
 
         entryService.create(entry1);
@@ -68,8 +68,8 @@ public class EntryServiceTest {
     @Test
     public void testIfEntryCanBeDeleted() {
         Entry entry = new Entry();
-        entry.setDescripiton("To be deleted");
-        entry.setCheck_in(LocalDateTime.now());
+        entry.setDescription("To be deleted");
+        entry.setCheckIn(LocalDateTime.now());
         entry.setDuration(1800);
 
         entryService.create(entry);

@@ -20,13 +20,13 @@ public class EntryRepositoryTest {
     @Test
     public void testIfEntryCanBeSaved() {
         Entry entry = new Entry();
-        entry.setDescripiton("Awesome");
-        entry.setCheck_in(LocalDateTime.now());
+        entry.setDescription("Awesome");
+        entry.setCheckIn(LocalDateTime.now());
         entry.setDuration(60 * 60 * 2);
  
         entryRepository.save(entry);
  
-        assertEquals(entry.getDescripiton(), entryRepository.findById(entry.getId()).get().getDescripiton());
+        assertEquals(entry.getDescription(), entryRepository.findById(entry.getId()).get().getDescription());
     }
  
 }
